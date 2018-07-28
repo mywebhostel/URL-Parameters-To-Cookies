@@ -1,0 +1,67 @@
+<html>
+<head>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+<script>
+	
+// Parse the URL
+function getParameterByName(name) {
+	name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+	var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+		results = regex.exec(location.search);
+	return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+// Give the URL parameters variable names
+var city = getParameterByName('filter_location');
+ 
+// Set the cookies
+//if(Cookies.set('filter_location') == null || Cookies.set('filter_location') == "") {
+Cookies.set('filter_location', city);
+//}
+
+
+
+// Remove cookie function
+function reset(){
+Cookies.remove('filter_location');
+}
+
+</script>    
+
+</head>
+<body>
+    
+Choose your city: 
+
+<form action="">
+    <input name="filter_location" type="hidden" value="Casablanca" />
+    <input  type="submit" value="Casablanca"/>
+</form>
+<form action="">
+    <input name="filter_location" type="hidden" value="Agadir" />
+    <input  type="submit" value="Agadir"/>
+</form>
+<form action="" name="locations">
+    <input name="filter_location" type="hidden" value="Tanger" />
+    <input  type="submit" value="Tanger"/>
+</form>
+
+<script>
+
+// Display cookies
+var choosen = Cookies.get('filter_location');
+if(choosen != "") {
+document.write("Your city is ");
+document.write(choosen);
+
+document.write("<br><form action=''><input  type='submit' value='Reset'/ onclick='reset()'></form>")
+}    
+    
+</script>
+
+
+
+</body>
+</html>
+
+</html>
