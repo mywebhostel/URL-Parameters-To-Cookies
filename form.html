@@ -19,20 +19,17 @@ var city = getParameterByName('filter_location');
 Cookies.set('filter_location', city);
 //}
 
-
-
 // Remove cookie function
 function reset(){
 Cookies.remove('filter_location');
 }
 
 </script>    
-
 </head>
+	
 <body>
     
 Choose your city: 
-
 <form action="">
     <input name="filter_location" type="hidden" value="Casablanca" />
     <input  type="submit" value="Casablanca"/>
@@ -59,9 +56,5 @@ document.write("<br><form action=''><input  type='submit' value='Reset'/ onclick
     
 </script>
 
-
-
 </body>
-</html>
-
 </html>
