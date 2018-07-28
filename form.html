@@ -19,17 +19,22 @@ var city = getParameterByName('filter_location');
 Cookies.set('filter_location', city);
 //}
 
+
+
 // Remove cookie function
 function reset(){
 Cookies.remove('filter_location');
 }
 
 </script>    
+
 </head>
-	
 <body>
+
+<h1>Using Submit</h1>
     
-Choose your city: 
+<h2>Choose your city:</h2> 
+
 <form action="">
     <input name="filter_location" type="hidden" value="Casablanca" />
     <input  type="submit" value="Casablanca"/>
@@ -43,17 +48,25 @@ Choose your city:
     <input  type="submit" value="Tanger"/>
 </form>
 
-<script>
+<h1>Using Select</h1>
 
+<form action="">
+  <select name="filter_location" onchange="this.form.submit()">
+    <option value="">Choose your city</option>
+    <option value="Casablanca">Casablanca</option>
+    <option value="Agadir">Agadir</option>
+    <option value="Tanger">Tanger</option>
+  </select>
+</form>
+
+<script>
 // Display cookies
 var choosen = Cookies.get('filter_location');
 if(choosen != "") {
-document.write("Your city is ");
+document.write("<h1>Output</h1>Your city is ");
 document.write(choosen);
-
-document.write("<br><form action=''><input  type='submit' value='Reset'/ onclick='reset()'></form>")
+document.write("<h1>Remove Cookies</h1><form action=''><input  type='submit' value='Reset'/ onclick='reset()'></form>")
 }    
-    
 </script>
 
 </body>
